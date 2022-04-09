@@ -5,6 +5,7 @@ const { getTravel } = require("../utils/getTravel");
 const Travels = db.travel;
 
 exports.create = async (req, res) => {
+  console.log(req);
   const userId = extractIdfromRequestAuthHeader(req);
   // Validate request
   if (!req.body) {

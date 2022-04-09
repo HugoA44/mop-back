@@ -1,6 +1,6 @@
 const { extractIdfromRequestAuthHeader } = require("../helpers/TokenHelpers");
 const db = require("../models");
-const { getTravel } = require("../utils/GetTravel");
+const { getTravel } = require("../utils/getTravel");
 
 const Travels = db.travel;
 

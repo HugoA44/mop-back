@@ -1,7 +1,8 @@
 const axios = require("axios");
 
 const getTravel = async (_placetype, _lat, _long, _ray) => {
-  const placetype = JSON.parse(_placetype);
+  // const placetype = JSON.parse(_placetype);
+  const placetype = _placetype;
   const lat = Number(_lat);
   const long = Number(_long);
   const ray = Number(_ray);

@@ -24,7 +24,8 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
           const selectedPlace =
             places[Math.floor(Math.random() * response.data.elements.length)];
 
-          console.log("selectedPlace", selectedPlace);
+          console.log("parcours avant travel", parcours);
+
           const travelUrl = `https://api.external.citymapper.com/api/1/traveltimes?start=${
             index > 0 ? parcours[index - 1][1].lat : lat
           },${index > 0 ? parcours[index - 1][1].lon : long}&end=${Number(
@@ -40,7 +41,7 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
           })
             .then(function (response) {
               parcours.push([response.data, selectedPlace]);
-              console.log("parcours", parcours);
+              console.log("parcours après travel", parcours);
             })
             .catch(function (error) {
               console.log(error);

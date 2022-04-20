@@ -56,6 +56,8 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
     );
   };
 
+  await mapping();
+
   return parcours;
 };
 

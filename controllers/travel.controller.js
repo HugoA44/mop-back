@@ -13,6 +13,7 @@ exports.create = async (req, res) => {
     });
     return;
   }
+  console.log(req.body);
   getTravel(
     req.body.placetype,
     req.body.latitude,

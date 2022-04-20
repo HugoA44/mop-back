@@ -24,7 +24,7 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
           const selectedPlace =
             places[Math.floor(Math.random() * response.data.elements.length)];
 
-          console.log("index", index);
+          await console.log("index", index);
           console.log("parcours avant travel", parcours);
 
           const travelUrl = `https://api.external.citymapper.com/api/1/traveltimes?start=${

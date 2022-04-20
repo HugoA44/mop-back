@@ -9,7 +9,7 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
   let parcours = [];
 
   const mapping = async () => {
-    placetype.map(async (type, index) => {
+    await placetype.map(async (type, index) => {
       const url = `https://overpass-api.de/api/interpreter?data=[out:json][timeout:25];(${type}(${
         lat - ray
       },${long - ray},${lat + ray},${long + ray}););out;>;out skel qt;`;
@@ -24,7 +24,7 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
           const selectedPlace =
             places[Math.floor(Math.random() * response.data.elements.length)];
 
-          await console.log("index", index);
+          console.log("index", index);
           console.log("parcours avant travel", parcours);
 
           const travelUrl = `https://api.external.citymapper.com/api/1/traveltimes?start=${

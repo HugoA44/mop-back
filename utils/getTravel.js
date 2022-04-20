@@ -8,7 +8,7 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
 
   let parcours = [];
 
-  const mapping = Promise.all(
+  const mapping = async () => {
     placetype.map(async (type, index) => {
       const url = `https://overpass-api.de/api/interpreter?data=[out:json][timeout:25];(${type}(${
         lat - ray
@@ -51,9 +51,10 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
         .catch(function (error) {
           console.log(error);
         });
-    })
-  );
+    });
+  };
 
+  await Promise.all(mapping());
   return parcours;
 };
 

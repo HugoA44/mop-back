@@ -28,10 +28,10 @@ const getTravel = async (_placetype, _lat, _long, _ray) => {
           console.log("parcours avant travel", parcours);
 
           const travelUrl = `https://api.external.citymapper.com/api/1/traveltimes?start=${
-            index > 0 ? parcours[index - 1][1].lat : lat
-          },${index > 0 ? parcours[index - 1][1].lon : long}&end=${Number(
-            selectedPlace.lat
-          )},${Number(selectedPlace.lon)}`;
+            parcours.length > 0 ? parcours[parcours.length - 1][1].lat : lat
+          },${
+            parcours.length > 0 ? parcours[parcours.length - 1][1].lon : long
+          }&end=${Number(selectedPlace.lat)},${Number(selectedPlace.lon)}`;
 
           await axios({
             method: "get",

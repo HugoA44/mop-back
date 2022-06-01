@@ -9,4 +9,6 @@ module.exports = function (app) {
     next();
   });
   app.post("/api/travel", [authJwt.verifyToken], controller.create);
+
+  app.get("/api/travel/:id", [authJwt.verifyToken], controller.findOne);
 };

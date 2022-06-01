@@ -67,3 +67,17 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.findOne = (req, res) => {
+  const userId = extractIdfromRequestAuthHeader(req);
+
+  Travels.findOne({ where: { id: req.params.id, userId } })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving travel.",
+      });
+    });
+};
